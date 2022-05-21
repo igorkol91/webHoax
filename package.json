@@ -1,0 +1,28 @@
+{
+  "name": "webhoax",
+  "version": "1.0.0",
+  "description": "Scrapping them pages",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "clear && nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igorkol91/webHoax.git"
+  },
+  "author": "Simon Grchevski and Igor Koloski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/igorkol91/webHoax/issues"
+  },
+  "homepage": "https://github.com/igorkol91/webHoax#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cheerio": "^1.0.0-rc.11",
+    "express": "^4.18.1"
+  }
+}
