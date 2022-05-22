@@ -3,20 +3,17 @@ import scrapeInfoMax  from "./infoMax.js";
 import scrapeNovaMk from "./novaMk.js";
 
 const app = express();
-const infoMax = await scrapeInfoMax();
-const novaMK = await scrapeNovaMk();
 
 app.listen("3000", () => {
     console.log("Server running at http://localhost:3000/");
 })
 
-
-app.get("/infomax", (req,res) => {
-    res.end(infoMax);
+app.get("/infomax", async (_,res) => {
+    res.end(await scrapeInfoMax());
 })
 
-app.get("/novamakedonija", (req,res) => {
-    res.end(novaMK);
+app.get("/novamakedonija", async (_,res) => {
+    res.end(await scrapeNovaMk());
 })
 
 
