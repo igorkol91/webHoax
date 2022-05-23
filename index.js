@@ -3,8 +3,11 @@ import scrapeInfoMax  from "./infoMax.js";
 import scrapeNovaMk from "./novaMk.js";
 import scrapeSitel from "./sitel.js";
 import scrapeKanal5 from "./kanal5.js";
+import telma from "./telma.js";
 
 const app = express();
+
+telma();
 
 app.listen("3000", () => {
     console.log("Server running at http://localhost:3000/");
