@@ -3,11 +3,9 @@ import scrapeInfoMax  from "./infoMax.js";
 import scrapeNovaMk from "./novaMk.js";
 import scrapeSitel from "./sitel.js";
 import scrapeKanal5 from "./kanal5.js";
-import telma from "./telma.js";
+import scrapeTelma from "./telma.js";
 
 const app = express();
-
-telma();
 
 app.listen("3000", () => {
     console.log("Server running at http://localhost:3000/");
@@ -15,6 +13,10 @@ app.listen("3000", () => {
 
 app.get("/infomax", async (_,res) => {
     res.end(await scrapeInfoMax());
+})
+
+app.get("/telma", async (_,res) => {
+    res.end(await scrapeTelma());
 })
 
 app.get("/novamakedonija", async (_,res) => {

@@ -1,22 +1,28 @@
 import puppeteer from 'puppeteer';
+import cheerio from 'cheerio';
 
-const telma = async () => {
+const scrapeTelma = async () => {
   try {
+    const response = {}
     const browser = await puppeteer.launch();
     const [page] = await browser.pages();
 
     await page.goto('https://telma.com.mk/kategorija/%d0%b2%d0%b5%d1%81%d1%82%d0%b8/makedonija/');
     await autoScroll(page);
-    await page.screenshot({
-        path: 'yoursite.png'
-    });
 
     const data = await page.evaluateHandle(() => document.querySelector('.popular-posts-sr').shadowRoot.querySelector('ul').outerHTML);
-    // const data = await page.evaluate(() => document.querySelector('.popular-posts-sr'));
-
-    console.log(data);
-
     await browser.close();
+    const $ = cheerio.load(data._remoteObject.value);
+
+    $("ul li div .wpp-post-title").each((i, e) => {
+        response[i] = {link: `${$(e).attr("href")}`, content: $(e).html()}
+    })
+
+    $("ul li img").each((i, e) => {
+        response[i] = {...response[i], image: $(e).attr('src')}
+    })
+
+    return JSON.stringify(response);
   } catch (err) {
     console.error(err);
   }
@@ -41,4 +47,4 @@ async function autoScroll(page){
     });
 }
 
-export default telma;
+export default scrapeTelma;
