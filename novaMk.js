@@ -6,12 +6,12 @@ const scrapeNovaMk = async () => {
     const res = await axios.get("https://www.novamakedonija.com.mk/");
     const $ = cheerio.load(res.data);
 
-    $(".td-big-grid-wrapper .td-medium-thumb .td-image-wrap img").each(function (i) {
-        response[i] = { image:$(this).attr("src"),content:$(this).attr("title") }
+    $(".td-big-grid-wrapper .td-medium-thumb .td-image-wrap img").each((i,e) => {
+        response[i] = { image:$(e).attr("src"),content:$(e).attr("title") }
     })
 
-    $(".td-big-grid-wrapper .td-medium-thumb .td-image-wrap").each(function (i) {
-       response[i] = {...response[i], link:$(this).attr("href")}
+    $(".td-big-grid-wrapper .td-medium-thumb .td-image-wrap").each((i,e) =>{
+       response[i] = {...response[i], link:$(e).attr("href")}
     })
     
     return JSON.stringify(response);

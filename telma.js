@@ -30,7 +30,7 @@ const scrapeTelma = async () => {
 
 async function autoScroll(page){
     await page.evaluate(async () => {
-        await new Promise((resolve, reject) => {
+        await new Promise((resolve) => {
             let totalHeight = 0;
             let distance = 100;
             const timer = setInterval(() => {

@@ -4,6 +4,7 @@ import scrapeNovaMk from "./novaMk.js";
 import scrapeSitel from "./sitel.js";
 import scrapeKanal5 from "./kanal5.js";
 import scrapeTelma from "./telma.js";
+import scrapeAlfa from "./alfa.js";
 
 const app = express();
 
@@ -29,4 +30,8 @@ app.get("/sitel", async (_,res) => {
 
 app.get("/kanal5", async (_,res) => {
     res.end(await scrapeKanal5());
+})
+
+app.get("/alfa", async (_,res) => {
+    res.end(await scrapeAlfa());
 })
