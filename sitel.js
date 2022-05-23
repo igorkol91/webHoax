@@ -10,8 +10,8 @@ const scrapeSitel = async () => {
         response[i] = {image:$(e).attr("src")};
     })
 
-    $(".views-field .field-content .title-wrapper a").each(function (i) {
-        response[i] = {...response[i], content:$(this).html(), link:`https://sitel.com.mk/${$(this).attr("href")}`};
+    $(".views-field .field-content .title-wrapper a").each((i,e) => {
+        response[i] = {...response[i], content:$(e).html(), link:`https://sitel.com.mk/${$(e).attr("href")}`};
     })
 
      return JSON.stringify(response);
