@@ -6,12 +6,13 @@ const scrapeTelma = async () => {
     const response = {}
     const browser = await puppeteer.launch({
         headless: true,
-        args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process']
+        args: ['--no-sandbox','--disable-setuid-sandbox']
       })
     const [page] = await browser.pages();
 
     await page.goto('https://telma.com.mk/kategorija/%d0%b2%d0%b5%d1%81%d1%82%d0%b8/makedonija/', {"waitUntil" : "networkidle0"}); 
-
+    await autoScroll(page);
+    await page.screenshot({path: 'screenshot.png', fullPage: true});
     const data = await page.evaluateHandle(() => document.querySelector('.popular-posts-sr').shadowRoot.querySelector('ul').outerHTML);
     const $ = cheerio.load(data._remoteObject.value);
     
@@ -29,5 +30,15 @@ const scrapeTelma = async () => {
     console.error(err);
   }
 };
+
+async function autoScroll(page){
+    await page.evaluate(async () => {
+        await new Promise((resolve) => {
+            // window.scrollBy(0, 1000);
+            window.scrollBy(0, document.body.scrollHeight);
+            resolve();
+        });
+    });
+}
 
 export default scrapeTelma;
