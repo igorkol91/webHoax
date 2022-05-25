@@ -20,7 +20,7 @@ const scrapeTelma = async () => {
     $("ul li img").each((i, e) => {
         response[i] = {...response[i], image: $(e).attr('src')}
     })
-    
+      
     await browser.close();
     return JSON.stringify(response);
   } catch (err) {
