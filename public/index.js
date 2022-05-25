@@ -35,3 +35,7 @@ app.get("/kanal5", async (_,res) => {
 app.get("/alfa", async (_,res) => {
     res.end(await scrapeAlfa());
 })
+
+app.get("/", async (_,res) => {
+    res.end('Main page');
+})
