@@ -1,14 +1,15 @@
+import 'dotenv/config';
 import express from "express";
-import scrapeInfoMax  from "./infoMax.js";
-import scrapeNovaMk from "./novaMk.js";
-import scrapeSitel from "./sitel.js";
-import scrapeKanal5 from "./kanal5.js";
-import scrapeTelma from "./telma.js";
-import scrapeAlfa from "./alfa.js";
+import scrapeInfoMax  from "./public/infoMax.js";
+import scrapeNovaMk from "./public/novaMk.js";
+import scrapeSitel from "./public/sitel.js";
+import scrapeKanal5 from "./public/kanal5.js";
+import scrapeTelma from "./public/telma.js";
+import scrapeAlfa from "./public/alfa.js";
 
 const app = express();
 
-app.listen("3000", () => {
+app.listen(process.env.PORT || "3000", () => {
     console.log("Server running at http://localhost:3000/");
 })
 
