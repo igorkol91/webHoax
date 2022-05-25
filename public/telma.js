@@ -11,17 +11,17 @@ const scrapeTelma = async () => {
     await autoScroll(page);
 
     const data = await page.evaluateHandle(() => document.querySelector('.popular-posts-sr').shadowRoot.querySelector('ul').outerHTML);
-    await browser.close();
     const $ = cheerio.load(data._remoteObject.value);
-
+    
     $("ul li div .wpp-post-title").each((i, e) => {
         response[i] = {link: `${$(e).attr("href")}`, content: $(e).html()}
     })
-
+    
     $("ul li img").each((i, e) => {
         response[i] = {...response[i], image: $(e).attr('src')}
     })
-
+    
+    await browser.close();
     return JSON.stringify(response);
   } catch (err) {
     console.error(err);
