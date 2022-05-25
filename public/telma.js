@@ -4,7 +4,10 @@ import cheerio from 'cheerio';
 const scrapeTelma = async () => {
   try {
     const response = {}
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        headless: true,
+        args: ['--no-sandbox','--disable-setuid-sandbox']
+      })
     const [page] = await browser.pages();
 
     await page.goto('https://telma.com.mk/kategorija/%d0%b2%d0%b5%d1%81%d1%82%d0%b8/makedonija/');
