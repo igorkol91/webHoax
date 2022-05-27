@@ -9,7 +9,7 @@ import scrapeAlfa from "./public/alfa.js";
 
 const app = express();
 
-app.listen(process.env.PORT || "3000", () => {
+app.listen(process.env.PORT || "5000", () => {
     console.log("Server running at http://localhost:3000/");
 })
 
