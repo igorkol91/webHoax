@@ -11,7 +11,11 @@ const scrapeNovaMk = async () => {
     })
 
     $(".td-big-grid-wrapper .td-medium-thumb .td-image-wrap").each((i,e) =>{
-       response[i] = {...response[i], link:$(e).attr("href"), source:"Nova Makedonija"}
+       response[i] = {
+           ...response[i],
+           link:$(e).attr("href"),
+           sourceLogo:"https://www.novamakedonija.com.mk/wp-content/Logo%20Redizajn%202021%20NM%20WEB/Logo-plavo-272x73-Header-2-01.png"
+        }
     })
 
     return JSON.stringify(response);

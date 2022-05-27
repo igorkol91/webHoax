@@ -11,7 +11,12 @@ const scrapeSitel = async () => {
     })
 
     $(".views-field .field-content .title-wrapper a").each((i,e) => {
-        response[i] = {...response[i], content:$(e).html(), link:`https://sitel.com.mk/${$(e).attr("href")}`, source: "Sitel"};
+        response[i] = {
+            ...response[i],
+            content:$(e).html(),
+            link:`https://sitel.com.mk/${$(e).attr("href")}`,
+            sourceLogo: "https://sitel.com.mk/sites/all/themes/sitel/logo.png"
+        };
     })
 
 

@@ -10,7 +10,12 @@ const scrapeInfoMax = async () => {
     })
 
     $(".svet-list .h4-title-region a").each((i,e) => {
-        response[i] = {...response[i], link:$(e).attr("href"), content:$(e).text(),source:"InfoMax"}
+        response[i] = {
+            ...response[i],
+            link:$(e).attr("href"),
+            content:$(e).text(),
+            sourceLogo:"https://infomax.mk/wp-content/uploads/2020/05/Infomax.png"
+        }
     })
 
     return JSON.stringify(response);

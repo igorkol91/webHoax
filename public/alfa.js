@@ -12,7 +12,11 @@ const scrapeAlfa = async () => {
 
     $(".align-items-center .read-bg-img a").each( (i,e) => {
         if($(e).children('img').length){
-            response[i] = {...response[i], image:$(e).children('img').attr("src"),source:"Alfa"};
+            response[i] = {
+                ...response[i],
+                image:$(e).children('img').attr("src"),
+                sourceLogo:"https://alfa.mk/wp-content/uploads/Webp.net-resizeimage-4.png"
+            };
         }
         else {
             response[i] = {...response[i], image:"",source:"Alfa"};

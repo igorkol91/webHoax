@@ -19,26 +19,32 @@ app.listen(process.env.PORT || "5000", () => {
 })
 
 app.get("/infomax", async (_,res) => {
+    res.writeHead(200, {"Content-Type": "application/json"});
     res.end(await scrapeInfoMax());
 })
 
 app.get("/telma", async (_,res) => {
+    res.writeHead(200, {"Content-Type": "application/json"});
     res.end(await scrapeTelma());
 })
 
 app.get("/novamakedonija", async (_,res) => {
+    res.writeHead(200, {"Content-Type": "application/json"});
     res.end(await scrapeNovaMk());
 })
 
 app.get("/sitel", async (_,res) => {
+    res.writeHead(200, {"Content-Type": "application/json"});
     res.end(await scrapeSitel());
 })
 
 app.get("/kanal5", async (_,res) => {
+    res.writeHead(200, {"Content-Type": "application/json"});
     res.end(await scrapeKanal5());
 })
 
 app.get("/alfa", async (_,res) => {
+    res.writeHead(200, {"Content-Type": "application/json"});
     res.end(await scrapeAlfa());
 })
 
