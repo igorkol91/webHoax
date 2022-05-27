@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import cors from 'cors';
 import express from "express";
 import scrapeInfoMax  from "./public/infoMax.js";
 import scrapeNovaMk from "./public/novaMk.js";
@@ -9,8 +10,12 @@ import scrapeAlfa from "./public/alfa.js";
 
 const app = express();
 
+app.use(cors({
+    origin: '*'
+}));
+
 app.listen(process.env.PORT || "5000", () => {
-    console.log("Server running at http://localhost:3000/");
+    console.log("Server running at http://localhost:5000/");
 })
 
 app.get("/infomax", async (_,res) => {
