@@ -11,7 +11,6 @@ const scrapeAlfa = async () => {
     })
 
     $(".align-items-center .read-bg-img a").each( (i,e) => {
-        console.log($(e).children('img').length);
         if($(e).children('img').length){
             response[i] = {...response[i], image:$(e).children('img').attr("src"),source:"Alfa"};
         }
