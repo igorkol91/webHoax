@@ -10,10 +10,8 @@ const scrapeKanal5 = async () => {
     })
 
     $(".big-column .articles-container .article .article-image a img").each((i,e) => {
-        response[i] = {...response[i], image:`https://kanal5.com.mk${$(e).attr("src")}`, content:$(e).attr("alt")}
+        response[i] = {...response[i], image:`https://kanal5.com.mk${$(e).attr("src")}`, content:$(e).attr("alt"),source:"Kanal5"}
     })
-
-    response["source"] = "Kanal5";
 
     return JSON.stringify(response);
 }

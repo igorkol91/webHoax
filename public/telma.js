@@ -22,12 +22,11 @@ const scrapeTelma = async () => {
     })
     
     $("ul li img").each((i, e) => {
-        response[i] = {...response[i], image: $(e).attr('src')}
+        response[i] = {...response[i], image: $(e).attr('src'),source:"Telma"}
     })
       
     await browser.close();
-    response["source"] = "Telma";
-    
+
     return JSON.stringify(response);
   } catch (err) {
     console.error(err);
