@@ -26,6 +26,8 @@ const scrapeTelma = async () => {
     })
       
     await browser.close();
+    response["source"] = "Telma";
+    
     return JSON.stringify(response);
   } catch (err) {
     console.error(err);

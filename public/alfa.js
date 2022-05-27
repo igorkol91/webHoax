@@ -13,6 +13,7 @@ const scrapeAlfa = async () => {
     $(".row article img").each( (i,e) => {
         response[i] = {...response[i], image:$(e).attr("src")};
     })
+    response["source"] = "Alfa";
 
     return JSON.stringify(response);
 }

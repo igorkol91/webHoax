@@ -14,6 +14,8 @@ const scrapeSitel = async () => {
         response[i] = {...response[i], content:$(e).html(), link:`https://sitel.com.mk/${$(e).attr("href")}`};
     })
 
+    response["source"] = "Sitel";
+
      return JSON.stringify(response);
 }
 

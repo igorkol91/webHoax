@@ -12,6 +12,7 @@ const scrapeInfoMax = async () => {
     $(".svet-list .h4-title-region a").each((i,e) => {
         response[i] = {...response[i], link:$(e).attr("href"), content:$(e).text()}
     })
+    response["source"] = "InfoMax";
 
     return JSON.stringify(response);
 }

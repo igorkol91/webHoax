@@ -13,6 +13,8 @@ const scrapeNovaMk = async () => {
     $(".td-big-grid-wrapper .td-medium-thumb .td-image-wrap").each((i,e) =>{
        response[i] = {...response[i], link:$(e).attr("href")}
     })
+
+    response["source"] = "Nova Makedonija";
     
     return JSON.stringify(response);
 }
